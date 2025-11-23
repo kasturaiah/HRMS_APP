@@ -19,11 +19,11 @@ require('dotenv').config();
    app.use('/logs', logRoutes);
 
    // Serve static files from React build
-   app.use(express.static(path.join(__dirname, 'frontend/build')));
+   app.use(express.static(path.join(__dirname, 'client/build')));
 
    // Catch all: serve React app for non-API routes
    app.get('*', (req, res) => {
-     res.sendFile(path.join(__dirname, 'frontend/build/index.html'));
+     res.sendFile(path.join(__dirname, 'client/build/index.html'));
    });
 
    const PORT = process.env.PORT || 5000;
