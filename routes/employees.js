@@ -1,0 +1,11 @@
+const express = require('express');
+    const { getEmployees, createEmployee, updateEmployee, deleteEmployee, assignToTeam, removeFromTeam } = require('../controllers/employeeController');
+    const { authenticate } = require('../middleware/authMiddleware');
+    const router = express.Router();
+    router.get('/', authenticate, getEmployees);
+    router.post('/', authenticate, createEmployee);
+    router.put('/:id', authenticate, updateEmployee);
+    router.delete('/:id', authenticate, deleteEmployee);
+    router.post('/assign', authenticate, assignToTeam);
+    router.post('/remove', authenticate, removeFromTeam);
+    module.exports = router;
